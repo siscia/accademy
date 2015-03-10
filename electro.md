@@ -1,3 +1,8 @@
+---
+title: Electro
+layout: post
+---
+
 # Electro
 
 ## p-type and n-type material

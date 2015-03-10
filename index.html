@@ -1,107 +1,51 @@
-<!DOCTYPE html>
-<html>
+---
+layout: default
+---
 
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Accademy : ">
+<div class="home">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+  {% if site.theme.header_text %}
+  <div class="call-out">{{ site.theme.header_text }}</div>
+  {% endif %}
 
-    <title>Accademy</title>
-  </head>
-
-  <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/siscia/accademy">View on GitHub</a>
-
-          <h1 id="project_title">Accademy</h1>
-          <h2 id="project_tagline"></h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/siscia/accademy/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/siscia/accademy/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>
-<a id="electro" class="anchor" href="#electro" aria-hidden="true"><span class="octicon octicon-link"></span></a>Electro</h1>
-
-<h2>
-<a id="p-type-and-n-type-material" class="anchor" href="#p-type-and-n-type-material" aria-hidden="true"><span class="octicon octicon-link"></span></a>p-type and n-type material</h2>
-
-<p>We indicate with p-type (p stand for Positive) a semiconductor with positive majority charge.</p>
-
-<p>Similarly n-type (n for negative) stand for a semiconductor with negative majority charge.</p>
-
-<h3>
-<a id="formation-of-n--and-p--type" class="anchor" href="#formation-of-n--and-p--type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Formation of n- and p- type</h3>
-
-<p>To obtain such material is necessary to dope a semiconductor.</p>
-
-<p>It need to be clear that solid silicon is a crystal and the silicon atoms are bond to each other thanks to a covalent bond, 4 electrons from each atoms are used, and the octet is complete, do not leave neither free electron nor holes.</p>
-
-<p>To obtain a n-type we need to left some free electron in the material, to left free electron we dope the Silicon with a pentavalent element, 4 electrons form bonds with the silicon, while the fifth is free.</p>
-
-<p>Similarly to obtain a p-type we need to leave some charge hole in the material, so we will dope the silicon with a trivalent element (Boron, Indium and Gallium are usually used), all the 3 electrons will form bonds with the silicon but actually one more will be required, so we are left with an hole.</p>
-
-<h3>
-<a id="pn-junction" class="anchor" href="#pn-junction" aria-hidden="true"><span class="octicon octicon-link"></span></a>pn-junction</h3>
-
-<p>A pn-function is simply a junction between a p-type silicon and a n-type silicon.</p>
-
-<p>A soon as the two piece of silicon get in touch the free electron in the n-region start to flow torward the p-region covering the holes.</p>
-
-<p>In the small portion of the n-region (the portion closer to the junction) that has loose electron we are left with positive ions, similarly in the portion of p-region that has accept the electrons to cover the holes we are left with negative ions.</p>
-
-<p>This two close layer of ions form the so called <code>deplection region</code>.</p>
-
-<p>The process is extremelly quick so the deplection region is way thinner than the silicon pieces.</p>
-
-<p>The closents of two layers of ionic charge create a electric field that do not allow the movements of the free electrons from the n-region to the p-region.</p>
-
-<p>It is necessary to apply a difference of voltage between the juction to provide the elctrons with enough energy to overcome this barrier.</p>
-
-<p>The necessary potential is called <code>barrier potential</code> and is around 0.7V
-for silicon based junction and 0.3V for the Germanium one.</p>
-
-<h2>
-<a id="diode" class="anchor" href="#diode" aria-hidden="true"><span class="octicon octicon-link"></span></a>Diode</h2>
-
-<p>A diode is simply a pn-junction.</p>
-
-<p>An electric current can be applied to diode in two way: <code>Forward Bias</code> or <code>Reverse Bias</code>.</p>
-
-<h3>
-<a id="forward-bias" class="anchor" href="#forward-bias" aria-hidden="true"><span class="octicon octicon-link"></span></a>Forward Bias</h3>
-
-<p>If the current is applied forward bias the electron from the n-region start to move torward the p-region untill they are not blocked by the deplection region.</p>
-
-<p>If the different of voltage is high enought, however, the electron have sufficient energy to pass throught the deplection region and the diode will act as a very small resistance.</p>
-
-<h3>
-<a id="reverse-bias" class="anchor" href="#reverse-bias" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reverse Bias</h3>
-
-<p>When the current is applied reverse bias the electrons from the n-region are "sucked out", similarly are the holes (abstractly speaking) in the p-region. It happen that the deplection region start to wide even more, (more ions are formed close to the deplection region) making definitely impossible the passage of any electrons, in this case the diode will act as an open circut.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Accademy maintained by <a href="https://github.com/siscia">siscia</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
+  <div class="posts">
+    {% for post in paginator.posts %}
+    <div class="post-teaser">
     
+      <header>
+        <h1>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h1>
+        
+        <p class="meta">{{ post.date | date: "%B %-d, %Y" }}</p>
+      </header>
 
-  </body>
-</html>
+      <div class="excerpt">
+        {{ post.excerpt }}
+
+        <a class="button" href="{{ post.url | prepend: site.baseurl }}">{{ site.theme.str_continue_reading }}</a>
+      </div>
+      
+    </div>
+    {% endfor %}
+  </div>
+
+  {% if paginator.total_pages > 1 %}
+  <div class="pagination">
+  
+    {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="button" >
+      <i class="fa fa-chevron-left"></i> 
+      {{ site.theme.str_prev }}
+    </a>
+    {% endif %}
+
+    {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="button" >
+      {{ site.theme.str_next }} 
+      <i class="fa fa-chevron-right"></i>
+    </a>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>

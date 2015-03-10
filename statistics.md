@@ -1,3 +1,8 @@
+---
+title: Statistic
+layout: post
+---
+
 # Statistic
 
 In the first lesson we are going to define basic elements that will need later.
